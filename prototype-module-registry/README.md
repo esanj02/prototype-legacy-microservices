@@ -8,8 +8,8 @@
 ### Pre-requisites
 | Dependency | Version |
 | ------ | ------ |
-| Java | [plugins/dropbox/README.md] [1.8] |
-| Maven | [plugins/github/README.md] [3.0.x > higher] |
+| Java | 1.8 |
+| Maven | 3.0.x > higher |
 	
 ### Modules
 	* Registry service module - <prototype-module-registry_service>
@@ -17,10 +17,22 @@
 	
 ### Maven goals
 
-	```sh
-		$ mvn archetype:generate -DarchetypeGroupId=org.codehaus.mojo.archetypes -DarchetypeArtifactId=pom-root -DarchetypeVersion=RELEASE -DgroupId=prototype.module.registry -DartifactId=prototype-module-registry -Dversion=0.0.0.1-SNAPSHOT -DinteractiveMode=false
-		$ mvn archetype:generate -DgroupId=prototype.module.registry -DartifactId=prototype-module-registry_server -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
-		$ mvn archetype:generate -DgroupId=prototype.module.registry -DartifactId=prototype-module-registry_client -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
-	
-		$ cd prototype-module-registry && clear && mvn clean install -U 
-	```
+#### Create parent project
+```sh
+	$ mvn archetype:generate -DarchetypeGroupId=org.codehaus.mojo.archetypes -DarchetypeArtifactId=pom-root -DarchetypeVersion=RELEASE -DgroupId=prototype.module.registry -DartifactId=prototype-module-registry -Dversion=0.0.0.1-SNAPSHOT -DinteractiveMode=false
+```
+
+#### Create registry service sub-project
+```sh		
+$ mvn archetype:generate -DgroupId=prototype.module.registry -DartifactId=prototype-module-registry_server -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
+```
+
+#### Create registry service client sub-project
+```sh	
+$ mvn archetype:generate -DgroupId=prototype.module.registry -DartifactId=prototype-module-registry_client -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
+```
+
+#### Build project from parent
+```sh	
+$ cd prototype-module-registry && clear && mvn clean install -U 
+```
